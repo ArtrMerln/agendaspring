@@ -7,8 +7,9 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import agendaspring.controllers.Homecontroller;
 
-@EnableWebMvc
-@ComponentScan(basePackageClasses = {Homecontroller.class})
+@EnableWebMvc //habilita a classe o modo web mvc do spring para ele tomar conta das reqisocoes 
+@ComponentScan(basePackageClasses = {Homecontroller.class}) //os controllers ficam na casa homecontroller.class no pacote base dessa classe
+
 public class AppWebConfiguration {
 
 	@Bean
@@ -16,8 +17,9 @@ public class AppWebConfiguration {
  InternalResourceViewResolver resolver = new InternalResourceViewResolver();
  
 resolver.setPrefix("/WEB-INF/views/");
-	
-	return resolver;
+	//metodo que mostra onde esta os arquivos jps 
+resolver.setSuffix(".jsp");	
+return resolver;
 	}
 	
 }
