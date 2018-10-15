@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>mad max</title>
+<title>Insert title here</title>
 </head>
 <body>
-<h1>bem vindo a aplicação spring</h1>
+<h1>ok</h1>
 </body>
 </html>
