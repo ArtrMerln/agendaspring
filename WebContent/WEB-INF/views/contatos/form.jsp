@@ -28,7 +28,10 @@
 			<label>Endereço: </label> 
 			<input type="text" name="endereco">
 		</div>
-		
+		<div>
+			<label>Data de Nascimento: </label>
+			<input type="text" name="dataNascimento">
+		</div>
 		<div>
 			<button type="submit">Adicionar</button>
 		</div>

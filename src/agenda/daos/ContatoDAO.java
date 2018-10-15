@@ -20,7 +20,7 @@ public class ContatoDAO {
 
 	public boolean inserir(Contato contato) {
 
-		String sql = "insert into contatos (nome, email, endereco) values (?, ?, ?);";
+		String sql = "insert into contatos (nome, email, endereco, dataNascimento) values (?, ?, ?, ?);";
 
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
@@ -29,7 +29,7 @@ public class ContatoDAO {
 			stmt.setString(2, contato.getEmail());
 			stmt.setString(3, contato.getEndereco());
 
-			// stmt.setDate(4, new java.sql.Date(contato.getDataNascimento().getTimeInMillis()));
+			stmt.setDate(4, new java.sql.Date(contato.getDataNascimento().getTimeInMillis()));
 
 			stmt.execute();
 			stmt.close();
@@ -61,7 +61,7 @@ public class ContatoDAO {
 				// montando a data atrav�s do Calendar
 				Calendar data = Calendar.getInstance();
 				data.setTime(rs.getDate("dataNascimento"));
-				// contato.setDataNascimento(data);
+				contato.setDataNascimento(data);
 
 				// adicionando o objeto � lista
 				result.add(contato);
@@ -75,15 +75,15 @@ public class ContatoDAO {
 		return result;
 	}
 
-	/* public boolean alterar(Contato contato) {
+	public boolean alterar(Contato contato) {
 		String sql = "update contatos set nome=?, email=?, endereco=?, dataNascimento=? where id=?;";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setString(1, contato.getNome());
 			stmt.setString(2, contato.getEmail());
 			stmt.setString(3, contato.getEndereco());
-		//	stmt.setDate(4, new java.sql.Date(contato.getDataNascimento().getTimeInMillis()));
-			stmt.setLong(4, contato.getId());
+			stmt.setDate(4, new java.sql.Date(contato.getDataNascimento().getTimeInMillis()));
+			stmt.setLong(5, contato.getId());
 			stmt.execute();
 			stmt.close();
 		} catch (SQLException e) {
@@ -122,10 +122,10 @@ public class ContatoDAO {
 				result.setEmail(rs.getString("email"));
 				result.setEndereco(rs.getString("endereco"));
 
-			/*	// montando a data atrav�s do Calendar
+				// montando a data atrav�s do Calendar
 				Calendar data = Calendar.getInstance();
 				data.setTime(rs.getDate("dataNascimento"));
-				// result.setDataNascimento(data);
+				result.setDataNascimento(data);
 			}
 			rs.close();
 			stmt.close();
@@ -136,6 +136,6 @@ public class ContatoDAO {
 		return result;
 	}
 
-	*/
+	
 
 }

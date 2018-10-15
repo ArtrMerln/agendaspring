@@ -1,6 +1,7 @@
 package agenda.models;
-
 import java.util.Calendar;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Contato {
 
@@ -8,7 +9,9 @@ public class Contato {
 	private String nome;
 	private String email;
 	private String endereco;
-	// private Calendar dataNascimento;
+	
+	@DateTimeFormat(pattern="dd/mm/yyyy")
+	private Calendar dataNascimento;
 
 	public Long getId() {
 		return id;
@@ -42,12 +45,18 @@ public class Contato {
 		this.endereco = endereco;
 	}
 
-	/*public Calendar getDataNascimento() {
+	public Calendar getDataNascimento() {
 		return dataNascimento;
 	}
 
 	public void setDataNascimento(Calendar dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-*/
+
+	@Override
+	public String toString() {
+		return "Contato [id=" + id + ", nome=" + nome + ", email=" + email + ", endereco=" + endereco
+				+ ", dataNascimento=" + dataNascimento + "]";
+	}
+
 }
