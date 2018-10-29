@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<c:import url="../Menu.jsp"></c:import>
 	<h1>Lista de contatos:</h1>
 
 	<table border="2">
@@ -23,15 +23,17 @@
 				<th>Email</th>
 				<th>Endereço</th>
 				<th>Data de Nascimento</th>
+				
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="contato" items="${contatos }">
+			<c:forEach var="contato" items="${contatos}">
 				<tr>
 					<td>${contato.nome }</td>
 					<td>${contato.email }</td>
 					<td>${contato.endereco }</td>
 					<td>${contato.dataNascimento.time }</td>
+					<td><a href="/agendaspring/contatos/remover?id=${contato.id}">Remover </a></td>
 				</tr>
 			</c:forEach>
 
