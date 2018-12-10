@@ -12,14 +12,15 @@ import agenda.daos.ContatoDAO;
 import agenda.models.Contato;
 
 @Controller
+@RequestMapping("/contatos")
 public class contatocontroller {
-	@RequestMapping("/contatos/form")
+	@RequestMapping("/form")
 	public String form() {
 		System.out.println("Chamou o form de contatos");
 		return "contatos/form";
 	}
 	
-	@PostMapping("/contatos")                                 //BORA METER 
+	@PostMapping                                 
 	public String adicionar(Contato contato) {
 		System.out.println(contato);
 		ContatoDAO contatoDAO = new ContatoDAO();
@@ -29,7 +30,7 @@ public class contatocontroller {
 		//sempre que fizer um post fazer um redirecionamento do post
 	}
 	
-	@GetMapping("/contatos")
+	@GetMapping
 	public ModelAndView listar() {
 		ContatoDAO contatoDAO = new ContatoDAO();
 		List<Contato> lista = contatoDAO.getLista();
@@ -39,7 +40,7 @@ public class contatocontroller {
 	
 	}
 	
-	@RequestMapping("/contatos/remover")
+	@RequestMapping("/remover")
 	public ModelAndView remover(Contato contato) {
 		System.out.println("chamou o metodo de remover");
 		ContatoDAO contatoDAO = new ContatoDAO();
